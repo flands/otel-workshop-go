@@ -10,7 +10,9 @@ import (
 	"go.opentelemetry.io/otel/api/core"
 	"go.opentelemetry.io/otel/api/global"
 	"go.opentelemetry.io/otel/api/trace"
-	"go.opentelemetry.io/otel/exporters/otlp"
+
+	// "go.opentelemetry.io/otel/exporters/otlp"
+	"go.opentelemetry.io/otel/exporters/trace/zipkin"
 	"go.opentelemetry.io/otel/plugin/httptrace"
 	"go.opentelemetry.io/otel/plugin/othttp"
 	"go.opentelemetry.io/otel/sdk/resource/resourcekeys"
@@ -18,10 +20,11 @@ import (
 )
 
 func initTracer() error {
-	exporter, err := otlp.NewExporter(
-		otlp.WithInsecure(),
-		otlp.WithAddress("localhost:55680"),
-	)
+	//exporter, err := otlp.NewExporter(
+	//	otlp.WithInsecure(),
+	//	otlp.WithAddress("localhost:55680"),
+	//)
+	exporter, err := zipkin.NewExporter("https://signalfx-otel-workshop-collector.glitch.me/api/v2/spans")
 	if err != nil {
 		return err
 	}
