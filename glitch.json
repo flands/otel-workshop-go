@@ -1,6 +1,6 @@
 {
   "install": "! command -v go &>/dev/null && [ ! -d /tmp/go ] && echo \"Starting Go compiler download and installation\" && curl -sSL https://dl.google.com/go/go1.13.9.linux-amd64.tar.gz -o - | tar xzf - -C /tmp && echo \"Finished installation\"",
-  "start": "echo \"Starting Go server...\" GOROOT=/tmp/go && PATH=\"$PATH:$GOROOT/bin\" go run app/main.go",
+  "start": "echo \"Starting Go server...\" GOROOT=/tmp/go && PATH=\"$PATH:$GOROOT/bin\" cd app && go run -mod=vendor main.go",
   "watch": {
     "throttle": "3000",
     "restart": {
