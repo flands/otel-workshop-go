@@ -53,6 +53,7 @@ func main() {
 
 	var mux http.ServeMux
 	mux.Handle("/", othttp.NewHandler(http.HandlerFunc(s.handler), "hello"))
+	fmt.Println("listening on port 3000")
 	check(http.ListenAndServe(":3000", &mux))
 }
 
