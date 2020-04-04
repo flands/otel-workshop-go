@@ -5,8 +5,7 @@ if [ ! -d /tmp/go ]
     curl -sSL https://dl.google.com/go/go1.13.9.linux-amd64.tar.gz -o - | tar xzf - -C /tmp
 then
     echo "Go 1.13 already installed"
-fi
-
+fi;
 
 echo Starting Go server...
 export GOROOT=/tmp/go
