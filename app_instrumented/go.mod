@@ -1,4 +1,4 @@
-module otel/demo/go
+module oteldemo.com/demo/go
 
 go 1.13
 
